@@ -34,7 +34,7 @@ Add `deep_clone_options` in the models which needs to be copied with the parent
 
 
     :unequal_attributes => This contains the column names should not be same as parent(Ex: xx column in child table will not be same as xx column in parent table so this column in child table will set to nil)
-    Ex: deep_clone_options(:unequal_attrs => [:xx])
+    Ex: deep_clone_options(::unequal_attributes => [:xx])
 
 
     :equivalent_associations => If child table has 2 foreign keys and one will be automatically updated with associations array mentioned in parent class and to update the other foreign key we need this option in child class.
