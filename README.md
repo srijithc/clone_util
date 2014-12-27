@@ -18,18 +18,20 @@ Or install it yourself as:
 
 ## Usage
 
-#Call deep_clone with the parent object which should copy all its children
+Call deep_clone with the parent object which should copy all its children
 ```javascript
 Ex: School.first.deep_clone
 ```
 
-#Add deep_clone_options in the models which needs to be copied with the parent
-Ex: deep_clone_options(:associations => [:departments, :laboratories])
-
-Example:
+Add `deep_clone_options` in the models which needs to be copied with the parent
 ```javascript
+Ex: deep_clone_options(:associations => [:departments, :laboratories])
+```
+
+#Example:
 Models:
 
+```javascript
 class School < ActiveRecord::Base
   has_many :laboratories
   has_many :departments
@@ -61,8 +63,9 @@ class Student < ActiveRecord::Base
   belongs_to :department
 end
 ```
-Migrations:
 
+Migrations:
+```javascript
 class CreateSchools < ActiveRecord::Migration
   def change
     create_table :schools do |t|
@@ -107,18 +110,22 @@ class CreateStudents < ActiveRecord::Migration
     end
   end
 end
+```
 
-# Seed File:
+Seed File:
+```javascript
 School.create([{ name: 'school1'}])
 Department.create([{ name: 'department1', :school_id => 1 }])
 Laboratory.create([{ name: 'Lab1', :school_id => 1, :department_id => 1 }, { name: 'Lab2', :school_id => 1, :department_id => 1 }])
 Student.create([{ name: 'student1', :department_id => 1 }, { name: 'student2', :department_id => 1 }])
+```
 
 Include the models and run the above migrations
 Finally below command gives you the clone result
 
+```javascript
 School.first.deep_clone
-
+```
 
 ## Contributing
 
