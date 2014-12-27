@@ -29,17 +29,20 @@ Add `deep_clone_options` in the models which needs to be copied with the parent
 
 ## Parameters passed with `deep_clone_options`:
 
-    :associations => This contains the list of association which needs to be cloned.
+    :associations => This contains the list of association(children) which needs to be cloned.
     Ex: deep_clone_options(:associations => [:departments])
 
 
-    :unequal_attrs => This contains the column names should not be same as source(Ex: xx column will not be same as compared to source_object so this column in cloned object will become nil)
+    :unequal_attributes => This contains the column names should not be same as parent(Ex: xx column in child table will not be same as xx column in parent table so this column in child table will set to nil)
     Ex: deep_clone_options(:unequal_attrs => [:xx])
 
 
-    :equivalent_associations => If table has 2 foreign keys and one will be automatically updated with associations array and to update the other  foreign keys we need this option.
+    :equivalent_associations => If child table has 2 foreign keys and one will be automatically updated with associations array mentioned in parent class and to update the other foreign key we need this option in child class.
     Ex: deep_clone_options(:equivalent_associations => [:laboratory_id])
-  
+    
+
+    :parent_id_attr => This contains the parent column of the child table
+    
 
 ## Example:
 Models:
@@ -48,25 +51,20 @@ Models:
         has_many :laboratories
         has_many :departments
         deep_clone_options(:associations => [:departments, :laboratories])
-        def copy
-          self.deep_clone
-        end
     end
 
 
     class Laboratory < ActiveRecord::Base
         belongs_to :school
         belongs_to :department
-        deep_clone_options(:parent_id_att => [:school_id],
-                     :equivalent_associations => [:department]  )
+        deep_clone_options(:equivalent_associations => [:department]  )
     end
 
 
     class Department < ActiveRecord::Base
         belongs_to :school
         has_many :students
-        deep_clone_options(:parent_id_att => [:school_id],
-                     :associations => [:students])
+        deep_clone_options(:associations => [:students])
     end
 
 
