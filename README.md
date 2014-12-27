@@ -27,6 +27,19 @@ Add `deep_clone_options` in the models which needs to be copied with the parent
 
     Ex: deep_clone_options(:associations => [:departments, :laboratories])
 
+## Parameters passed with `deep_clone_options`:
+
+    :associations => This contains the list of association which needs to be cloned.
+    Ex: deep_clone_options(:associations => [:departments])
+
+
+    :unequal_attrs => This contains the column names should not be same as source(Ex: xx column will not be same as compared to source_object so this column in cloned object will become nil)
+    Ex: deep_clone_options(:unequal_attrs => [:xx])
+
+
+    :equivalent_associations => If table has 2 foreign keys and one will be automatically updated with associations array and to update the other  foreign keys we need this option.
+    Ex: deep_clone_options(:equivalent_associations => [:laboratory_id])
+  
 
 ## Example:
 Models:
