@@ -19,13 +19,15 @@ Or install it yourself as:
 ## Usage
 
 #Call deep_clone with the parent object which should copy all its children
+```javascript
 Ex: School.first.deep_clone
+```
 
 #Add deep_clone_options in the models which needs to be copied with the parent
 Ex: deep_clone_options(:associations => [:departments, :laboratories])
 
 Example:
-
+```javascript
 Models:
 
 class School < ActiveRecord::Base
@@ -58,7 +60,7 @@ end
 class Student < ActiveRecord::Base
   belongs_to :department
 end
-
+```
 Migrations:
 
 class CreateSchools < ActiveRecord::Migration
