@@ -1,6 +1,6 @@
 # CloneUtil
 
-TODO: Write a gem description
+This gem helps us to copy the ActiveRecord objects recursively
 
 ## Installation
 
@@ -129,7 +129,7 @@ School.first.deep_clone
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/clone_util/fork )
+1. Fork it ( https://github.com/srijithc/clone_util/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
