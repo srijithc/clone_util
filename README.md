@@ -134,5 +134,6 @@ Finally below command gives you the clone result:
 
 ## Sample Application
 
-    Here we can find application which uses clone_util gem for copying ActiveRecord objects recursively
-    https://github.com/srijithc/sample_clone_util
+Here we can find application which uses clone_util gem for copying ActiveRecord objects recursively
+
+https://github.com/srijithc/sample_clone_util
