@@ -132,12 +132,7 @@ Finally below command gives you the clone result:
 
     School.first.deep_clone
 
-## Contributing
+## Sample Application
 
-1. Fork it ( https://github.com/srijithc/clone_util/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-
-
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+    Here we can find application which uses clone_util gem for copying ActiveRecord objects recursively
+    https://github.com/srijithc/sample_clone_util
